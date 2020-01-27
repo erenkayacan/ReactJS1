@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Button label={"Click Button One"} handleClick={() => alert('Clicked button One!')}>
+          </Button>
+          <Button label={"Click Button Two"} handleClick={() => alert('Clicked button Two!')}>
+      </Button>
+        </header>
+      </div>
+    );
+  }
+};
+const Button = ({ type = 'button', handleClick, label }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <button className="link-button" type={type} onClick={handleClick}>
+      {label}
+    </button>
   );
-}
-
+};
 export default App;
